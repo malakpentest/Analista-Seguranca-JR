@@ -1,6 +1,6 @@
-# 🛡️ Diretrizes de Defesa e Boas Práticas Corporativas
+# 🛡️ Diretrizes de Defesa e Monitoramento de Alertas
 
-A segurança defensiva (Blue Team) exige uma postura proativa para mitigar riscos, reduzir a superfície de ataque e garantir a resiliência dos ativos corporativos. Este documento compila as principais práticas de defesa adotadas por um Analista de Segurança Júnior.
+A segurança defensiva (Blue Team) exige uma postura proativa para mitigar riscos, reduzir a superfície de ataque e garantir a resiliência dos ativos corporativos. Este documento compila as principais práticas de defesa e o fluxo de monitoramento de alertas adotados por um Analista de Segurança Júnior.
 
 ---
 
@@ -14,27 +14,35 @@ Nenhuma camada de segurança é 100% infalível por si só. Por isso, a estraté
 
 ---
 
+## 🚨 Monitoramento de Alertas e Triagem (SOC N1)
+
+O monitoramento contínuo é a linha de frente da defesa cibernética. De nada adianta ter barreiras se não houver visibilidade sobre o que acontece no ambiente.
+
+### Principais Fontes de Alertas Monitoradas:
+* **EDR (Endpoint Detection and Response):** Detecção de processos suspeitos, scripts maliciosos em PowerShell e conexões de rede atípicas.
+* **SIEM / Logs de Autenticação:** Identificação de picos de falhas de login, tentativas de força bruta ou acessos de localizações geográficas anômalas.
+* **Gateway de E-mail / Proxy:** Alertas de tráfego direcionado a domínios maliciosos ou tentativas de exfiltração.
+
+### Fluxo Prático de Triagem de Alertas:
+1. **Validação:** O alerta é uma ameaça real ou um **falso positivo** (ex: um administrador executando um script legítimo)?
+2. **Enriquecimento:** Consulta de reputação de IPs e hashes em bases de inteligência de ameaças.
+3. **Classificação e Priorização:** Definição da severidade (Baixa, Média, Alta, Crítica) com base no impacto ao negócio.
+4. **Contenção Inicial:** Aplicação de playbooks de resposta (como isolar um host via EDR ou bloquear um IP no firewall).
+
+---
+
 ## 🔑 Controles de Acesso e Identidade (IAM)
 
 A identidade tornou-se o novo perímetro de segurança corporativo. Os pilares de defesa incluem:
-* **Princípio do Menor Privilégio (PoLP):** Garantir que usuários e sistemas tenham acesso apenas aos recursos estritamente necessários para o desempenho de suas funções.
-* **Autenticação Multifator (MFA):** Obrigatoriedade de uso de múltiplos fatores de autenticação para todos os colaboradores, mitigando o risco de comprometimento por credenciais vazadas.
-* **Gestão de Ciclo de Vida de Contas:** Desprovisionamento imediato de acessos para colaboradores desligados e revisão periódica de privilégios administrativos.
+* **Princípio do Menor Privilégio (PoLP):** Garantir que usuários e sistemas tenham acesso apenas aos recursos estritamente necessários.
+* **Autenticação Multifator (MFA):** Obrigatoriedade de uso de múltiplos fatores de autenticação para mitigar comprometimento por credenciais vazadas.
+* **Gestão de Ciclo de Vida:** Desprovisionamento imediato de acessos para colaboradores desligados.
 
 ---
 
 ## 📋 Checklist de Hardening e Monitoramento Contínuo
 
-* [ ] **Gestão de Vulnerabilidades:** Realização periódica de escaneamentos para identificar falhas conhecidas em softwares e sistemas operacionais.
-* [ ] **Monitoramento de Logs (SIEM):** Centralização e análise contínua de eventos de segurança provenientes de servidores, estações de trabalho e firewalls.
-* [ ] **Resposta a Incidentes (IR):** Manutenção de um plano de ação claro para contenção rápida de ameaças e mitigação de danos em caso de intrusão.
-* [ ] **Backups Regulares (Regra 3-2-1):** Manter 3 cópias dos dados, em 2 mídias diferentes, sendo 1 cópia off-site (isolada da rede) para proteção contra ransomware.
-
----
-
-## 🎯 O Papel Proativo do Analista Júnior na Defesa
-
-A defesa não se resume apenas a ferramentas automatizadas; ela depende do fator humano e operacional:
-* **Análise de Alertas Diários:** Triagem ágil de falsos positivos versus incidentes reais reportados pelas ferramentas de monitoramento.
-* **Orientação de Boas Práticas:** Apoio na conscientização de equipes internas sobre a importância de senhas fortes, cuidado com links e reportes imediatos de anomalias.
-* **Documentação de Ameaças:** Atualização constante da base de conhecimento com novos padrões de ataque identificados para antecipar futuras tentativas.
+* [ ] **Gestão de Vulnerabilidades:** Varreduras periódicas para identificar falhas em softwares e sistemas.
+* [ ] **Análise de Logs em Tempo Real:** Centralização e acompanhamento de eventos de segurança no SIEM.
+* [ ] **Resposta a Incidentes (IR):** Execução de playbooks estruturados para contenção rápida de ameaças.
+* [ ] **Backups Regulares (Regra 3-2-1):** 3 cópias de dados, 2 mídias diferentes e 1 cópia off-site isolada contra ransomware.
