@@ -9,7 +9,7 @@ O objetivo é demonstrar habilidades essenciais de **análise, documentação e 
 ## 📂 Estrutura do Repositório
 
 - **`Analista-Seguranca-JR/`**
-  - **[phishing.md](ca://s?q=Mostrar_conteúdo_de_phishing.md)** → Como identificar, analisar e responder a tentativas de phishing.  
+  - **[phishing.md](https://github.com/malakpentest/Analista-Seguranca-JR/blob/main/phishing.md)** → Como identificar, analisar e responder a tentativas de phishing.  
   - **[engenharia_social.md](ca://s?q=Mostrar_conteúdo_de_engenharia_social.md)** → Técnicas de manipulação psicológica e como reconhecê-las.  
   - **[defesa.md](ca://s?q=Mostrar_conteúdo_de_defesa.md)** → Checklist de defesa e boas práticas de proteção.  
   - **[atendimento_usuario.md](ca://s?q=Mostrar_conteúdo_de_atendimento_usuario.md)** → Simulação de atendimento a usuários em casos de suspeita de ataque.  
